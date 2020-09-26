@@ -31,8 +31,10 @@ Flixster is an app that allows users to browse movies from the [The Movie Databa
 
 <img src="https://github.com/ogennaesimai/Ogenna_Esimai_Flixster/blob/master/Ogenna_Esimai_Flixster_Video_Walkthrough.gif" width=250><br>
 
+App Walkthough GIF created using [ScreenToGif](https://www.screentogif.com/) v2.27.2
+
 ### Notes
-Describe any challenges encountered while building the app.
+Encountered some bugs while building the app. They were great learning experiences.
 
 ### Open-source libraries used
 
