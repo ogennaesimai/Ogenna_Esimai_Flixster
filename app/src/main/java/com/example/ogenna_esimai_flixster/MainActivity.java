@@ -1,0 +1,76 @@
+package com.example.ogenna_esimai_flixster;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.codepath.asynchttpclient.AsyncHttpClient;
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.ogenna_esimai_flixster.adapters.MovieAdapter;
+import com.example.ogenna_esimai_flixster.models.Movie;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Headers;
+
+import static android.util.Log.*;
+
+public class MainActivity extends AppCompatActivity {
+
+    public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed" ;
+    public static final String TAG = "MainActivity" ; //to easily log data
+
+    List<Movie> movies;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        movies = new ArrayList<>();
+
+        //Create the adapter
+        final MovieAdapter movieAdapter = new MovieAdapter(this, movies);
+
+        //set the adapter on the RV
+        rvMovies.setAdapter(movieAdapter);
+
+        //set a Layout Manager on the RV
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
+                Log.d(TAG, "onSuccess");
+                JSONObject jsonObject = json.jsonObject;
+                try {
+                    // later will want to turn this JSONArray into a list of movies and move this
+                    // applicable line of code into Movie.java class for a clean separation of functionality
+                    JSONArray results = jsonObject.getJSONArray("results") ;
+                    Log.i(TAG, "Results: " + results.toString() );
+                    //movies = Movie.fromJSONArray(results); //modified after instantiating "movies"
+                    movies.addAll(Movie.fromJSONArray(results));
+                    movieAdapter.notifyDataSetChanged();
+                    Log.i(TAG, "Movies: " + movies.size() );
+                } catch (JSONException e) {
+                    Log.e(TAG, "Hit json exception", e);
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
+                Log.d(TAG, "onFailure");
+            }
+        });
+    }
+}
