@@ -18,15 +18,16 @@
 - [ ] Apply the popular ButterKnife annotation library to reduce view boilerplate. (1 point)
 - [ ] Add a rounded corners for the images using the Glide transformations. (1 point)
 
-### App Walkthough GIF
+### App Walkthough GIF #2
 
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
+[//]: # "`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)"
 
-<img src="YOUR_GIF_URL_HERE" width=250><br>
+<img src="https://github.com/ogennaesimai/Ogenna_Esimai_Flixster/blob/master/Ogenna_Esimai_Flixster_Video_Walkthrough_2.gif" width=250><br>
+
+App Walkthrough GIF #2 created using [ScreenToGif](https://www.screentogif.com/) v2.27.2
 
 ### Notes
-
-Describe any challenges encountered while building the app.
+Encountered some bugs and scavenger hunts along the way. They were great learning experiences.
 
 ## Open-source libraries used
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
