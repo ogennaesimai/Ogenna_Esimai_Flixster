@@ -12,11 +12,18 @@
 #### BONUS
 
 - [ ] Trailers for popular movies are played automatically when the movie is selected (1 point).
-  - [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
-  - [ ] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
+- [ ] When clicking on a popular movie (i.e. a movie voted for more than 5 stars) the video should be played immediately.
+- [ ] Less popular videos rely on the detailed page should show an image preview that can initiate playing a YouTube video.
 - [ ] Add a play icon overlay to popular movies to indicate that the movie can be played (1 point).
 - [ ] Apply the popular ButterKnife annotation library to reduce view boilerplate. (1 point)
 - [ ] Add a rounded corners for the images using the Glide transformations. (1 point)
+
+### App Walkthrough GIF #3
+
+<img src='https://github.com/ogennaesimai/Ogenna_Esimai_Flixster/blob/master/Ogenna_Esimai_Flixster_Video_Walkthrough_3.gif' title='Ogenna_Esimai_Flixster_Video_Walkthrough_3' width='400' alt='Flixster_Video_Walkthrough_3'/>
+
+App Walkthrough GIF #3 created using [LiceCap](http://www.cockos.com/licecap/) v1.28
+
 
 ### App Walkthough GIF #2
 
