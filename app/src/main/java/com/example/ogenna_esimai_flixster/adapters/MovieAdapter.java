@@ -3,6 +3,7 @@ package com.example.ogenna_esimai_flixster.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.ViewTarget;
 import com.example.ogenna_esimai_flixster.DetailActivity;
 import com.example.ogenna_esimai_flixster.R;
 import com.example.ogenna_esimai_flixster.models.Movie;
@@ -23,6 +25,8 @@ import com.example.ogenna_esimai_flixster.models.Movie;
 import org.parceler.Parcels;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
@@ -94,7 +98,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             //android doesn't have a way to render remote images so we'll use a library for that
             //Glide.with(context).load(movie.getPosterPath()).into(ivPoster); //modified to accommodate
             //backdrop_path
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            //Glide.with(context).load(imageUrl).into(ivPoster);
+            int radius = 30; // corner radius, higher value = more rounded
+            int margin = 10; // crop margin, set to 0 for corners with no crop
+            Glide.with(context).load(imageUrl)
+                    .fitCenter()
+                    .transform(new RoundedCornersTransformation(radius, margin))
+                    .into(ivPoster);
 
             //1. register click listener on the whole row (as opposed to only on Title)- so changed
             // tvTitle to container
